@@ -34,3 +34,9 @@
   border: 1px solid #ffffff;
   border-radius: 4px;
 }
+
+@media screen and (max-width: 480px) {
+  .login {
+    align-items: stretch;
+  }
+}

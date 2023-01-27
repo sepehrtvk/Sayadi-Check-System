@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from "react";
+import { login } from "../../Api/login";
 import { PageTypes } from "../../App";
 import { LOGIN } from "../../app-config";
 import "./LoginPage.css";
@@ -11,6 +12,7 @@ const LoginPage = (props: LoginProps) => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const onSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -20,8 +22,17 @@ const LoginPage = (props: LoginProps) => {
       return;
     }
     if (username === LOGIN.username && password === LOGIN.password) {
-      console.log(username, password);
-      props.navigateTo("checkPage");
+      setLoading(true);
+      login()
+        .then((data) => {
+          console.log(data);
+          props.navigateTo("checkPage");
+          setLoading(false);
+        })
+        .catch((error) => {
+          setLoading(false);
+          setError(error);
+        });
     } else setError("نام کاربری یا رمز عبور اشتباه است ! ");
   };
 
@@ -73,11 +84,23 @@ const LoginPage = (props: LoginProps) => {
             type="submit"
             className="btn btn-warning w-100 text-white mt-3"
           >
-            ورود به سامانه
+            {loading && (
+              <div className="d-flex align-items-center justify-content-center">
+                <div className="spinner-border text-white" role="status"></div>
+                <p className="mb-0  mx-2">لطفا صبر کنید </p>
+              </div>
+            )}
+            {!loading && (
+              <div className="d-flex align-items-center justify-content-center">
+                <p className="mb-0  mx-2">ورود به سامانه</p>
+              </div>
+            )}
           </button>
         </form>
       </div>
-      {error}
+      <div className="mt-3">
+        <p>{error}</p>
+      </div>
     </div>
   );
 };

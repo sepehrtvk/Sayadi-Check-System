@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       {currentPage == "loginPage" && <LoginPage navigateTo={navigateTo} />}
-      {currentPage == "checkPage" && <CheckPage />}
+      {currentPage == "checkPage" && <CheckPage navigateTo={navigateTo} />}
     </>
   );
 }
