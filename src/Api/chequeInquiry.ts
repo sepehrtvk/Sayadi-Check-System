@@ -4,6 +4,7 @@ import { API_PORT, API_URL } from "../app-config";
 export type ChequeInquiryResponse = {
   id: number;
   sayadId: string;
+  message: string;
   idType: number;
   nationalId: string;
   inquiryResult: {
@@ -51,11 +52,11 @@ export type ChequeInquiryResponse = {
   updatedAt: string;
 };
 
-export async function chequeInquiry(sayadId: string) {
+export async function chequeInquiry(sayadId: string, idType: number) {
   try {
     const { data } = await axios.post<ChequeInquiryResponse>(
       API_URL + ":" + API_PORT + "/api/cheque-inquiries",
-      { sayadId },
+      { sayadId, idType },
       {
         headers: {
           "Content-Type": "application/json",

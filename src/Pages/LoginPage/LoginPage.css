@@ -35,6 +35,12 @@
   border-radius: 4px;
 }
 
+.checkbox-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 @media screen and (max-width: 480px) {
   .login {
     align-items: stretch;

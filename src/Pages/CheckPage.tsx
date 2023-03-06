@@ -24,81 +24,82 @@ const CheckPage = (props: any) => {
       return;
     }
     setLoading(true);
-    chequeInquiry(sayadId)
+
+    const idType = Number(localStorage.getItem("idType"));
+
+    chequeInquiry(sayadId, idType)
       .then((data) => {
         const result = data as ChequeInquiryResponse;
         setCheckDetails(result);
         setLoading(false);
       })
       .catch((error) => {
-        setError(error);
+        setError(error.message);
         setLoading(false);
       });
   };
   return (
-    <div className="login">
-      <div className="card" style={{ minWidth: "35%" }}>
-        <div className="card-body">
+    <div className='login'>
+      <div className='card' style={{ minWidth: "35%" }}>
+        <div className='card-body'>
           <form onSubmit={onSubmitHandler}>
-            <p className="text-dark">شماره چک صیادی را وارد نمایید : </p>
+            <p className='text-dark'>شماره چک صیادی را وارد نمایید : </p>
             <input
-              className="form-control"
-              type="text"
-              placeholder="شماره چک"
+              className='form-control'
+              type='text'
+              placeholder='شماره چک'
               value={sayadId}
               maxLength={16}
               onChange={sayadiChangeHandler}
             />
             <button
-              type="submit"
+              type='submit'
               disabled={loading}
-              className="btn btn-warning text-white w-100 mt-4"
-            >
+              className='btn btn-warning text-white w-100 mt-4'>
               {loading && (
-                <div className="d-flex align-items-center justify-content-center">
+                <div className='d-flex align-items-center justify-content-center'>
                   <div
-                    className="spinner-border text-white"
-                    role="status"
-                  ></div>
-                  <p className="mb-0  mx-2">لطفا صبر کنید </p>
+                    className='spinner-border text-white'
+                    role='status'></div>
+                  <p className='mb-0  mx-2'>لطفا صبر کنید </p>
                 </div>
               )}
               {!loading && (
-                <div className="d-flex align-items-center justify-content-center">
-                  <p className="mb-0  mx-2">استعلام</p>
+                <div className='d-flex align-items-center justify-content-center'>
+                  <p className='mb-0  mx-2'>استعلام</p>
                 </div>
               )}
             </button>
           </form>
         </div>
       </div>
-      <div className="text-center my-3">
+      <div className='text-center my-3'>
         <p> {error}</p>
       </div>
       {checkDetails && (
-        <div className="card mb-5" style={{ minWidth: "35%" }}>
-          <div className="card-body">
-            <p className="fs-5 text-dark fw-bold "> وضعیت : </p>
-            <div className="text-center">
+        <div className='card mb-5' style={{ minWidth: "35%" }}>
+          <div className='card-body'>
+            <p className='fs-5 text-dark fw-bold '> وضعیت : </p>
+            <div className='text-center'>
               {checkDetails.isSucceed && (
                 <img
                   src={require("../Assets/images/check.png")}
-                  className="img-fluid"
+                  className='img-fluid'
                 />
               )}
               {!checkDetails.isSucceed && (
                 <img
                   src={require("../Assets/images/cencel.png")}
-                  className="img-fluid"
+                  className='img-fluid'
                 />
               )}
             </div>
-            <div className="my-4 text-center">
+            <div className='my-4 text-center'>
               {checkDetails.isSucceed && (
-                <span className="text-success fw-bold fs-4">چک معتبر است </span>
+                <span className='text-success fw-bold fs-4'>چک معتبر است </span>
               )}
               {!checkDetails.isSucceed && (
-                <span className="text-danger  fw-bold fs-4">
+                <span className='text-danger  fw-bold fs-4'>
                   چک نا معتبر است !
                 </span>
               )}
@@ -107,22 +108,21 @@ const CheckPage = (props: any) => {
         </div>
       )}
       {checkDetails && (
-        <div className="card" style={{ minWidth: "35%" }}>
-          <div className="card-body">
-            <p className="fs-5 text-dark fw-bold mb-5"> جزییات : </p>
+        <div className='card' style={{ minWidth: "35%" }}>
+          <div className='card-body'>
+            <p className='fs-5 text-dark fw-bold mb-5'> جزییات : </p>
             <ChequeDetails checkDetails={checkDetails} />
           </div>
         </div>
       )}
       <div>
-        <div className="d-flex align-items-center justify-content-center">
+        <div className='d-flex align-items-center justify-content-center'>
           <button
-            className="btn btn-danger mt-3"
+            className='btn btn-danger mt-3'
             onClick={() => {
               localStorage.clear();
               props.navigateTo("loginPage");
-            }}
-          >
+            }}>
             خروج
           </button>
         </div>

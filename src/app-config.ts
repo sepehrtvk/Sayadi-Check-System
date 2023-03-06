@@ -4,8 +4,14 @@ export const LOGIN = {
 };
 
 // api login details
-export const loginDetails = {
+//dar vajhe sherkat
+export const loginDetailsVaranegar = {
   identifier: "varanegar2",
+  password: "Aa123456",
+};
+//dar vajhe aghaye shiedoust
+export const loginDetailsShiedoust = {
+  identifier: "shiedoust",
   password: "Aa123456",
 };
 

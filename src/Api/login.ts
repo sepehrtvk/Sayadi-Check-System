@@ -1,11 +1,15 @@
 import axios from "axios";
-import { API_PORT, API_URL, loginDetails } from "../app-config";
+import { API_PORT, API_URL, loginDetailsVaranegar } from "../app-config";
 
 export type Login = {
   jwt: string;
 };
+export type LoginDetails = {
+  identifier: string;
+  password: string;
+};
 
-export async function login() {
+export async function login(loginDetails: LoginDetails | null) {
   try {
     const { data } = await axios.post<Login>(
       API_URL + ":" + API_PORT + "/api/auth/local",
@@ -18,6 +22,9 @@ export async function login() {
       }
     );
     localStorage.setItem("token", data.jwt);
+    if (loginDetails?.identifier == loginDetailsVaranegar?.identifier)
+      localStorage.setItem("idType", "2");
+    else localStorage.setItem("idType", "1");
 
     return data;
   } catch (error) {
