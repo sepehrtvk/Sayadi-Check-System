@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e47eaebb.css",
+    "main.js": "/static/js/main.41e6c837.js",
+    "static/media/iran-sans-light.eot": "/static/media/iran-sans-light.e51cb9caa98054a565e4.eot",
+    "static/media/iran-sans-light.ttf": "/static/media/iran-sans-light.0bca7bdca3d6921c2731.ttf",
+    "static/media/iran-sans-normal.eot": "/static/media/iran-sans-normal.6c0cb05d95f3f4a29315.eot",
+    "static/media/iran-sans-normal.ttf": "/static/media/iran-sans-normal.e1f52c1cd3dc2b427b59.ttf",
+    "static/media/iran-sans-medium.eot": "/static/media/iran-sans-medium.79d06fc2f97c1f659733.eot",
+    "static/media/iran-sans-medium.ttf": "/static/media/iran-sans-medium.cb738ca370cd24ab3f73.ttf",
+    "static/media/iran-sans-bold.eot": "/static/media/iran-sans-bold.0aa53e499bbeac4af66e.eot",
+    "static/media/iran-sans-bold.ttf": "/static/media/iran-sans-bold.3130146376b8f192efea.ttf",
+    "static/media/iran-sans-ultra-light.eot": "/static/media/iran-sans-ultra-light.ef0cfb62e5536f31f93b.eot",
+    "static/media/iran-sans-ultra-light.ttf": "/static/media/iran-sans-ultra-light.008fd388c03c38ccc693.ttf",
+    "static/media/iran-sans-light.woff": "/static/media/iran-sans-light.1880decb2222f362fea8.woff",
+    "static/media/iran-sans-normal.woff": "/static/media/iran-sans-normal.a0bf06eeea81c2760ef0.woff",
+    "static/media/iran-sans-ultra-light.woff": "/static/media/iran-sans-ultra-light.51f3defa1b4fc85f2843.woff",
+    "static/media/iran-sans-medium.woff": "/static/media/iran-sans-medium.8aafacff233ee30c9b8d.woff",
+    "static/media/iran-sans-bold.woff": "/static/media/iran-sans-bold.a1bde6aa4acd9a687b70.woff",
+    "static/media/iran-sans-light.woff2": "/static/media/iran-sans-light.86e59e9358aef6bb5505.woff2",
+    "static/media/iran-sans-normal.woff2": "/static/media/iran-sans-normal.5bd501ec2cde32155e1e.woff2",
+    "static/media/iran-sans-ultra-light.woff2": "/static/media/iran-sans-ultra-light.0ebdb49a7910a78dcac4.woff2",
+    "static/media/iran-sans-medium.woff2": "/static/media/iran-sans-medium.14e9565a46e8c49fbe2d.woff2",
+    "static/media/iran-sans-bold.woff2": "/static/media/iran-sans-bold.6fcfa0df8a2da770ce4d.woff2",
+    "index.html": "/index.html",
+    "static/media/logo-white.svg": "/static/media/logo-white.88f88ad033f35a3e436836d74bc7aa9c.svg",
+    "main.e47eaebb.css.map": "/static/css/main.e47eaebb.css.map",
+    "main.41e6c837.js.map": "/static/js/main.41e6c837.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e47eaebb.css",
+    "static/js/main.41e6c837.js"
+  ]
+}
