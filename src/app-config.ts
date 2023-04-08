@@ -8,11 +8,13 @@ export const LOGIN = {
 export const loginDetailsVaranegar = {
   identifier: "varanegar2",
   password: "Aa123456",
+  name: "ورانگر",
 };
 //dar vajhe aghaye shiedoust
 export const loginDetailsShiedoust = {
   identifier: "shiedoust",
   password: "Aa123456",
+  name: "آقای شیعه دوست",
 };
 
 //end points

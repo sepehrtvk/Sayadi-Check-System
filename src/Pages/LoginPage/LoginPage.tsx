@@ -43,7 +43,6 @@ const LoginPage = (props: LoginProps) => {
       }
       login(loginDetails)
         .then((data) => {
-          console.log(data);
           props.navigateTo("checkPage");
           setLoading(false);
         })

@@ -2,6 +2,7 @@ import React, { FormEvent, useState } from "react";
 import { chequeInquiry, ChequeInquiryResponse } from "../Api/chequeInquiry";
 import ChequeDetails from "../Components/ChequeDetails";
 import "./LoginPage/LoginPage.css";
+import { toEnglishNumber, toFarsiNumber } from "../shared/util";
 
 const CheckPage = (props: any) => {
   const [sayadId, setSayadId] = useState<string>("");
@@ -12,7 +13,8 @@ const CheckPage = (props: any) => {
     useState<ChequeInquiryResponse | null>(null);
 
   const sayadiChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const result = e.target.value.replace(/\D/g, "");
+    const resultEng = toEnglishNumber(e.target.value);
+    const result = resultEng.replace(/\D/g, "");
     setSayadId(result);
   };
 
@@ -40,18 +42,28 @@ const CheckPage = (props: any) => {
   };
   return (
     <div className='login'>
+      <p>
+        <span> استعلام چک در وجه </span>
+        <span className='fw-bolder'>{localStorage.getItem("name")}</span>
+      </p>
       <div className='card' style={{ minWidth: "35%" }}>
         <div className='card-body'>
           <form onSubmit={onSubmitHandler}>
             <p className='text-dark'>شماره چک صیادی را وارد نمایید : </p>
             <input
-              className='form-control'
+              className='form-control text-end'
               type='text'
               placeholder='شماره چک'
-              value={sayadId}
+              value={toFarsiNumber(sayadId)}
               maxLength={16}
               onChange={sayadiChangeHandler}
             />
+            {sayadId.length != 16 && sayadId.length != 0 && (
+              <p className='mt-2 mb-0 fw-light text-muted'>
+                ارقام باقیمانده : {toFarsiNumber(16 - sayadId.length)}
+              </p>
+            )}
+
             <button
               type='submit'
               disabled={loading}

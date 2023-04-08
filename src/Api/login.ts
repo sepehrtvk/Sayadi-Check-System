@@ -4,9 +4,11 @@ import { API_PORT, API_URL, loginDetailsVaranegar } from "../app-config";
 export type Login = {
   jwt: string;
 };
+
 export type LoginDetails = {
   identifier: string;
   password: string;
+  name: string;
 };
 
 export async function login(loginDetails: LoginDetails | null) {
@@ -21,10 +23,14 @@ export async function login(loginDetails: LoginDetails | null) {
         },
       }
     );
+    const accountName = loginDetails?.name ? loginDetails?.name : "نامشخص";
     localStorage.setItem("token", data.jwt);
-    if (loginDetails?.identifier == loginDetailsVaranegar?.identifier)
+    localStorage.setItem("name", accountName);
+    if (loginDetails?.identifier == loginDetailsVaranegar?.identifier) {
       localStorage.setItem("idType", "2");
-    else localStorage.setItem("idType", "1");
+    } else {
+      localStorage.setItem("idType", "1");
+    }
 
     return data;
   } catch (error) {
